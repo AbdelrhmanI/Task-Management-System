@@ -1,3 +1,40 @@
+
+## Summary of what i have done
+
+**Database Setup**: i've created two database tables - one for users and another for tasks. i've established a relationship between these tables using a foreign key constraint where the tasks table references the users table.
+
+**Authentication Flow**: Users can register for an account using the registration page. After registration, they can log in using their credentials on the login page.
+
+**Dashboard**: Upon successful login, users are redirected to the dashboard, where they can view their user information and a list of tasks associated with their account.
+
+**Task Management**: The dashboard displays tasks related to the logged-in user. Each task has options to edit and delete the task. Additionally, there is a button to create a new task.
+
+## CustomController Functions
+login(): Returns the view for the login page.
+
+registration(): Returns the view for the registration page.
+
+registerUser(Request $request): Validates the user registration form data, creates a new user record in the database, and redirects back with success or fail messages.
+
+loginUser(Request $request): Validates the user login form data, checks if the email exists in the database, and if the password matches. If successful, stores the user ID in the session and redirects to the dashboard; otherwise, redirects back with a fail message.
+
+dashboard(): Retrieves the logged-in user's tasks from the database and passes them to the dashboard view. If the user is not found, redirects to the login page with a fail message.
+
+logout(): Logs out the user by removing the login ID from the session and redirects to the login page.
+
+create(Request $request): Retrieves all users from the database and returns the view for creating a new task.
+
+createTask(Request $request): Validates the task creation form data, creates a new task record in the database, and redirects back with success or fail messages.
+
+editTask(Task $task): Retrieves all users from the database and returns the view for editing a specific task.
+
+updateTask(Request $request, Task $task): Validates the task update form data, updates the task record in the database, and redirects back with success or fail messages.
+
+deleteTask(Task $task): Deletes the specified task from the database and redirects to the dashboard with a success message.
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -7,8 +44,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
 
+## About Laravel
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
